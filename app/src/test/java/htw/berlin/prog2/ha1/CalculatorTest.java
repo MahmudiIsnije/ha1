@@ -90,6 +90,7 @@ class CalculatorTest {
 
 
     //TODO hier weitere Tests erstellen
+
     // Teilaufgabe 1
     @Test
     @DisplayName("should display result after subtracting two positive numbers")
@@ -107,7 +108,23 @@ class CalculatorTest {
         assertEquals(expected, actual);
     }
 
+    // Teilaufgabe 2 Fehlgeschlagener Test
+    @Test
+    @DisplayName("should repeat last operation when equals is pressed again")
+    void testRepeatedEqualsOperation() {
+        Calculator calc = new Calculator();
 
+        calc.pressDigitKey(3);
+        calc.pressBinaryOperationKey("+");
+        calc.pressDigitKey(2);
+        calc.pressEqualsKey();
+        calc.pressEqualsKey();
+
+        String expected = "7";  // Erwartet: 3 + 2 + 2
+        String actual = calc.readScreen();
+
+        assertEquals(expected, actual);
+    }
 
 
 
