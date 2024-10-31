@@ -44,6 +44,7 @@ public class Calculator {
      * Werte sowie der aktuelle Operationsmodus zurückgesetzt, so dass der Rechner wieder
      * im Ursprungszustand ist.
      */
+
     private boolean isClearedOnce = false;
 
     public void pressClearKey() {
@@ -54,7 +55,6 @@ public class Calculator {
             screen = "0";
             latestValue = 0.0;
             latestOperation = "";
-            double latestOperand = 0.0;  // Zurücksetzen des letzten Operanden
             isClearedOnce = false;  // Setzt zurück für den nächsten Clear-Befehl
         }
     }
@@ -127,7 +127,10 @@ public class Calculator {
      * Wird die Taste weitere Male gedrückt (ohne andere Tasten dazwischen), so wird die letzte
      * Operation (ggf. inklusive letztem Operand) erneut auf den aktuellen Bildschirminhalt angewandt
      * und das Ergebnis direkt angezeigt.
+     * Zum Beispiel: Wenn 3 + 2 eingegeben und "=" gedrückt wurde,
+     * dann wird bei erneutem Drücken von "=" der Wert 7 angezeigt (d.h. 3 + 2 + 2).
      */
+
     public void pressEqualsKey() {
         if (!latestOperation.isEmpty()) {
             var currentScreenValue = Double.parseDouble(screen);
