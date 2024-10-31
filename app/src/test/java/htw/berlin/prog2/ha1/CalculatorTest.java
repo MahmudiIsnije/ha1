@@ -108,7 +108,7 @@ class CalculatorTest {
         assertEquals(expected, actual);
     }
 
-    // Teilaufgabe 2 Fehlgeschlagener Test
+    // Teilaufgabe erster fehlgeschlagener test
     @Test
     @DisplayName("should repeat last operation when equals is pressed again")
     void testRepeatedEqualsOperation() {
