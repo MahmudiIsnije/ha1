@@ -44,11 +44,22 @@ public class Calculator {
      * Werte sowie der aktuelle Operationsmodus zurückgesetzt, so dass der Rechner wieder
      * im Ursprungszustand ist.
      */
+    private boolean isClearedOnce = false;
+
     public void pressClearKey() {
-        screen = "0";
-        latestOperation = "";
-        latestValue = 0.0;
+        if (!isClearedOnce) {
+            screen = "0";
+            isClearedOnce = true;  // Setzt den Zustand auf „einmal gelöscht“
+        } else {
+            screen = "0";
+            latestValue = 0.0;
+            latestOperation = "";
+            double latestOperand = 0.0;  // Zurücksetzen des letzten Operanden
+            isClearedOnce = false;  // Setzt zurück für den nächsten Clear-Befehl
+        }
     }
+
+
 
     /**
      * Empfängt den Wert einer gedrückten binären Operationstaste, also eine der vier Operationen
