@@ -126,8 +126,25 @@ class CalculatorTest {
         assertEquals(expected, actual);
     }
 
+    //Teilaufgabe 2 Fehlgeschlagener Test
 
+    @Test
+    @DisplayName("should reset screen without clearing the first operation when pressing clear key once")
+    void testClearKeyOnce() {
+        Calculator calc = new Calculator();
 
+        calc.pressDigitKey(6);
+        calc.pressBinaryOperationKey("+");
+        calc.pressDigitKey(3);
+        calc.pressClearKey();
+        calc.pressDigitKey(5);
+        calc.pressEqualsKey();
+
+        String expected = "11";  // Erwartet: 6 + 5 = 11, da nur der Bildschirm gelöscht wurde
+        String actual = calc.readScreen();
+
+        assertEquals(expected, actual);
+    }
 
 }
 
