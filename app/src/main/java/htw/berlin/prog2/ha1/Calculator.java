@@ -45,7 +45,7 @@ public class Calculator {
      * im Ursprungszustand ist.
      */
 
-    private boolean isClearedOnce = false;
+    private boolean isClearedOnce = false;  // Prüft, ob die Clear-Taste bereits einmal gedrückt wurde.
 
     public void pressClearKey() {
         if (!isClearedOnce) {
@@ -53,12 +53,11 @@ public class Calculator {
             isClearedOnce = true;  // Setzt den Zustand auf „einmal gelöscht“
         } else {
             screen = "0";
-            latestValue = 0.0;
+            latestValue = 0;
             latestOperation = "";
             isClearedOnce = false;  // Setzt zurück für den nächsten Clear-Befehl
         }
     }
-
 
 
     /**
